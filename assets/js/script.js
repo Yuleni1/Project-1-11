@@ -10,6 +10,7 @@ var showImg = document.querySelector("#img")
 var apiUrl = "https://api.thecatapi.com/v1/images/search"
 
 
+showFact.addEventListener("click",getCatImage)
 
 function getCatImage (){
 
@@ -26,13 +27,13 @@ fetch(apiUrl)
 
 .then(function(data){
    
-    var userClickimg = 0
 
    
     
-    showFact.addEventListener("click", function(){
+    // showFact.addEventListener("click", function(){
+        var userClickimg = 0
          userClickimg++
-
+       
           var randomCatPic = data[0].url
          console.log("this is what it returning", randomCatPic)
          var catPic = document.createElement("img");
@@ -44,10 +45,10 @@ fetch(apiUrl)
          displayFactEl.appendChild(catPic);
         
         
-        })
-
-
 })
+
+
+// })
 
 
 }
