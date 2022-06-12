@@ -5,11 +5,27 @@ const generateCat = document.getElementById("generate")
 let catImgArr = []
 let catFactArr = []
 
-let catImg = fetch("https://api.thecatapi.com/v1/images/search")
-    .then(res => res.json())
-    .then(data => {
-        // console.log(data)
+generateCat.addEventListener("click", fetchPics)
+
+function fetchPics()  {
+    fetch("https://api.thecatapi.com/v1/images/search")
+        .then(res => res.json())
+        .then(data => {
+
+            catImgBlock.innerHTML = ""
+
+            let userClick = 0
+            userClick++
+
+            let catsImgUrl = data[0].url
+            let catsImgEl = document.createElement("img")
+            catsImgEl.setAttribute('src', catsImgUrl)
+            
+            catImgBlock.appendChild(catsImgEl)
+
     })
+}
+
 
 let catFact = fetch("https://cat-fact.herokuapp.com/facts")
     .then(res => res.json())
