@@ -31,6 +31,10 @@ let catFact = fetch("https://cat-fact.herokuapp.com/facts")
         generateCat.addEventListener("click", () => {
             userClick++
 
+            if (userClick > 4) {
+                userClick = 0
+            }
+
             catFactEl.textContent = ""
             let randomFact = data[userClick].text
             factEl = document.createElement("p")
