@@ -2,9 +2,6 @@ const catImgBlock = document.getElementById("cat-img")
 const catFactEl = document.getElementById("cat-fact")
 const generateCat = document.getElementById("generate")
 
-let catImgArr = []
-let catFactArr = []
-
 generateCat.addEventListener("click", fetchPics)
 
 function fetchPics()  {
