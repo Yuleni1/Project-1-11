@@ -2,6 +2,7 @@
 var displayCatEl = document.querySelector("#displayCat");
 var displayFactEl = document.querySelector("#cat-fact");
 var generateEl = document.querySelector("#generate");
+var showFact = document.getElementById("btn")
 
 
 
@@ -40,8 +41,9 @@ var catArray=[];
 
 var catFactArray =[];
 
-var getCatFactApi = function(data) {
-    var factApiUrl = "https://cat-fact.herokuapp.com/facts"
+var getCatFactApi = function() {
+    
+    var factApiUrl = "https://cat-fact.herokuapp.com/facts/"
     
     fetch(factApiUrl)
     .then(function(response){
@@ -52,53 +54,31 @@ var getCatFactApi = function(data) {
 
     .then(function(data){
         
-        for (var i = 0; i < data.length; i++ ){
-         
-            var carFact = data[i].text
-            console.log(data[i].text);
-
-            var factEl = document.createElement("h1");
-            factEl.textContent = carFact;
-            console.log(factEl)
-            displayFactEl.appendChild(factEl);
-            //catFactArray.push(carFact)
-        }
-      
-    })
-}
-     
-
-
+        // displayCatFacts(data);
+        var userClick = 0
+        // var userClicks = data[userClick];
+         console.log("this is the data", data[userClick].text)
 
        
-//     .then(function(data){
-// displayCatFact (data)
-         
-//     for (var i = 0; i < data.length; i++ ){
-        
-//         //var pullCatFact = catFactArray.push(data[i].text)
+        showFact.addEventListener("click", function(){
+            userClick++
+           
+           randomFact = data[userClick].text
+            var factEl = document.createElement("h1");
+             factEl.textContent = randomFact;
+             console.log("this is showing ",factEl)
+             displayFactEl.appendChild(factEl);
+            
+            
+            }
+        )
 
-//          var pullCatFact = data[i].text
-//             catFactArray.push(pullCatFact).
 
-//                 console.log("this is what is being pulled",pullCatFact);
-//         console.log(data)
-//     })
-   
-// }
+    })
+}
+
+
 
 getCatFactApi() 
 
 
-// function displayCatFact (data){
-  
-        
-//         //var repoEl = document.createElement("a");
-
-//         }
-
-// }
-
-// displayCatFact()
-
-generateEl.addEventListener("sumbit", getCatFactApi)
