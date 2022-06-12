@@ -3,43 +3,56 @@ var displayCatEl = document.querySelector("#displayCat");
 var displayFactEl = document.querySelector("#cat-fact");
 var generateEl = document.querySelector("#generate");
 var showFact = document.getElementById("btn")
+var showImg = document.querySelector("#img")
 
 
 
-var apiUrl = "https://cataas.com/api/cats?limit=20"
-
-var catArray=[];
+var apiUrl = "https://api.thecatapi.com/v1/images/search"
 
 
 
-
-// fetch(apiUrl)
-// .then(function(response){
-//     // console.log (response);
-//     return response.json()
+function getCatImage (){
 
 
 
-// })
+fetch(apiUrl)
+.then(function(response){
+    // console.log (response);
+    return response.json()
 
-// .then(function(data){
+
+
+})
+
+.then(function(data){
    
-//     for (var i = 0; i < data.length; i++){
-//         var pullCatImg = data[i].id
-//     //create a div for each image       
-//     // var dataEl = document.createElement("a");
-//     // displayCatEl.appendChild(dataEl)
-//     // dataEl 
+    var userClickimg = 0
+
    
-//     // catArray.push(pullCatImg)
-//     // console.log(pullCatImg)
-//     // return pullCatImg
-// }
-// })
+    
+    showFact.addEventListener("click", function(){
+         userClickimg++
+
+          var randomCatPic = data[0].url
+         console.log("this is what it returning", randomCatPic)
+         var catPic = document.createElement("img");
+          catPic.setAttribute('src',randomCatPic );
+          console.log("data",catPic)
+    
 
 
+         displayFactEl.appendChild(catPic);
+        
+        
+        })
 
-var catFactArray =[];
+
+})
+
+
+}
+
+getCatImage ()
 
 var getCatFactApi = function() {
     
@@ -63,7 +76,8 @@ var getCatFactApi = function() {
         showFact.addEventListener("click", function(){
             userClick++
            
-           randomFact = data[userClick].text
+          var randomFact = data[userClick].text
+           displayFactEl.textContent="";
             var factEl = document.createElement("h1");
              factEl.textContent = randomFact;
              console.log("this is showing ",factEl)
