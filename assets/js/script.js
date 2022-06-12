@@ -34,6 +34,9 @@ fetch(apiUrl)
         var userClickimg = 0
          userClickimg++
        
+          if(userClickimg > 4){
+              userClickimg = 0
+          }
           var randomCatPic = data[0].url
          console.log("this is what it returning", randomCatPic)
          var catPic = document.createElement("img");
