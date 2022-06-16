@@ -119,3 +119,9 @@ ul.col {
 .save-noti {
     color: rgb(31, 192, 31)
 }
+
+p {
+    margin-top: 0;
+    font-family: cursive;
+    font-size: 32px;
+}
