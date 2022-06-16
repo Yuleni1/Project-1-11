@@ -1,52 +1,62 @@
-var displayCatEl = document.querySelector("#displayCat");
-var displayFactEl = document.querySelector("#cat-fact");
-var generateEl = document.querySelector("#generate");
-var showFact = document.getElementById("btn");
+const catImgBlock = document.getElementById("cat-img")
+const catFactEl = document.getElementById("cat-fact")
+const generateCat = document.getElementById("generate")
 
+generateCat.addEventListener("click", fetchPics)
 
-const catimgLimit = 200;
-const catimgNumber = Math.floor(Math.random() * catimgLimit);
-var caturl = "https://cataas.com/cat?" + catimgNumber + ".jpg"
-document.getElementById("displayCat").innerHTML = `<img src=${caturl} >`
+function fetchPics()  {
+    fetch("https://api.thecatapi.com/v1/images/search")
+        .then(res => res.json())
+        .then(data => {
 
-var catFactArray =[];
+            catImgBlock.innerHTML = ""
 
-var getCatFactApi = function() {
-    
-    var factApiUrl = "https://cat-fact.herokuapp.com/facts/"
-    
-    fetch(factApiUrl)
-    .then(function(response){
-        console.log("response successful", response)
-        return response.json()
-        
-    })
-
-    .then(function(data){
-        
-        // displayCatFacts(data);
-        var userClick = 0
-        // var userClicks = data[userClick];
-         console.log("this is the data", data[userClick].text)
-
-       
-        showFact.addEventListener("click", function(){
+            let userClick = 0
             userClick++
-           
-           randomFact = data[userClick].text
-            var factEl = document.createElement("h1");
-             factEl.textContent = randomFact;
-             console.log("this is showing ",factEl)
-             displayFactEl.appendChild(factEl);
-            
-            
-            }
-        )
 
+            let catsImgUrl = data[0].url
+            let catsImgEl = document.createElement("img")
+            catsImgEl.setAttribute('src', catsImgUrl)
+            
+            catImgBlock.appendChild(catsImgEl)
 
     })
 }
 
 
+let catFact = fetch("https://cat-fact.herokuapp.com/facts")
+    .then(res => res.json())
+    .then(data => {
+        let userClick = 0
+        generateCat.addEventListener("click", () => {
+            userClick++
 
-getCatFactApi() 
+            if (userClick > 4) {
+                userClick = 0
+            }
+
+            catFactEl.textContent = ""
+            let randomFact = data[userClick].text
+            factEl = document.createElement("p")
+            factEl.textContent = randomFact
+            catFactEl.appendChild(factEl)
+        })
+    })
+
+    function myFunction() {
+        var storedArray = JSON.parse(localStorage.getItem("randomFact"));
+
+        if (storedArray === null) {
+            storedArray = [];
+        }
+
+        var obj = {
+            email: "test@email.com",
+            age: 15,
+            name: "username"
+        };
+
+        storedArray.push(obj);
+        localStorage.setItem("storedArray", JSON.stringify(storedArray));
+    }
+    

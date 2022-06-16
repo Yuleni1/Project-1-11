@@ -4,42 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Daily Dose of Happiness</title>
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6, div {
+          padding: 0;
+          border: 0;
+          margin: 0;
+        }
+        .top {
+          padding: 0;
+          height: 170px;
+          background-color: #ef9a9a;
+          margin: 0px;
+        }
+      </style>
+    <title>Cat Fact Generator</title>
 </head>
 
 
 
 <body>
+    <!--Header begins-->
     <header>
 
-        <nav>
-        <h1>Daily Dose of Happiness</h1>
-        <a href="#">Saved Cat Facts</a>
-        </nav>  
-        
+        <nav class="blue lighten-3">
+        <h1>Daily Dose of Hapiness</h1>
+        <a href="#" class="white">Saved Cat Facts</a>
+        </nav>
     </header>
+ 
     <main>
-        <!--Generate Cat Fact-->
-        <div id="generate">
-        <button id="btn">Generate Your Cat Fact</button>
 
-        <div id="displayCat"></div>    
+        <!--Generate ur cat fact-->
+        <div>
+        <button id="generate">Generate ur cat fact</button>
+        <div id="cat-img" class="container"> </div>
         </div>
-        <!--Save Button-->
-            <div>
+
+
+        <!--save ur cat fact-->
+
+        <div>
             
-            
-                <div id="cat-fact"></div>
-            
-                <button>Save Your Cat Fact</button>  
+            <div class="container">
+                <p id="cat-fact"></p>
             </div>
+            <button>Save ur cat fact</button>
+        </div>
+
+
 
     </main>
+
+
+
+
+
     <footer>
 
     </footer>
     <script src="./assets/js/script.js"></script>
-
 </body>
 </html>

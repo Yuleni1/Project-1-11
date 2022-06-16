@@ -1,0 +1,21 @@
+.center {
+    display: block;
+    margin-left: center;
+    margin-right: center;
+    max-width: 100%;
+    max-height: 60%;
+  }
+  body{
+      text-align: center;
+
+  }
+  img {
+    display: fill;
+    width: 500x;
+    height: 500px;
+  }
+
+  div.container{
+      text-align: center;
+      padding: 10px 20px;
+  }
