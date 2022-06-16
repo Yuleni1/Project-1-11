@@ -1,7 +1,7 @@
 # Project-1-11
 
 ## Description
-This is a challange where the task has been given to refactor an exsisting code. The following acceptance criteria need to be met: 
+This is a challange where the task has been given to create an interactive application. The following acceptance criteria needs to be met: 
 
 Use a CSS framework other than Bootstrap.
 Be deployed to GitHub Pages.
@@ -22,6 +22,8 @@ This project will establish callaborative skills and coding abilities.
 https://yuleni1.github.io/Project-1-11/
 
 https://github.com/Yuleni1/Project-1-11
+
+![CatApp](/assets/images/Screenshot%202022-06-16%20000320.png)
 
 
 ## Technologies Required
