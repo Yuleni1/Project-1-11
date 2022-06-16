@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    
+
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6, div {
+          padding: 0;
+          border: 0;
+          margin: 0;
+        }
+        .top {
+          padding: 0;
+          height: 170px;
+          background-color: #ef9a9a;
+          margin: 0px;
+        }
+      </style>
+    <title>Cat Fact Generator</title>
 </head>
 
 
 
 <body>
     <!--Header begins-->
-    <header>
+    <header class="blue lighten-2 section">
 
-        <nav>
-        <h1>Daily Dose of Hapiness</h1>
-        <a href="#">Saved Cat Facts</a>
+        <nav class="blue lighten-2 row">
+        <h1 class="col">Daily Dose of Hapiness</h1>
+        <ul class="col">
+            <li>
+                <a href="#" id="saved-fact-btn" class="white">Saved Cat Facts</a>
+            </li>
+        </ul>
         </nav>
     </header>
  
     <main>
 
         <!--Generate ur cat fact-->
-        <div id="generate">
-        <button id="btn">Generate ur cat fact</button>
-        <div id="displayCat"></div>
-        <img id="img">
+        <div>
+        <button id="generate" class="btn">Generate ur cat fact</button>
+        <div id="cat-img"> </div>
         </div>
 
 
@@ -34,8 +53,14 @@
 
         <div>
             
-            <div id="cat-fact"></div>
-            <button onclick="getCatImage()">Save ur cat fact</button>
+            <div>
+                <p id="cat-fact"></p>
+            </div>
+            <button id="save-fact" class="btn z-depth-5">Save ur cat fact</button>
+        </div>
+
+        <div>
+            <ul id="load-facts"></ul>
         </div>
 
 

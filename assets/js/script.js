@@ -1,102 +1,76 @@
+const catImgBlock = document.getElementById("cat-img")
+const catFactEl = document.getElementById("cat-fact")
+const generateCat = document.getElementById("generate")
+const saveFactBtn = document.getElementById("save-fact")
+const loadFactsEl = document.getElementById("load-facts")
+const savedCatsBtn = document.getElementById("saved-fact-btn")
 
-var displayCatEl = document.querySelector("#displayCat");
-var displayFactEl = document.querySelector("#cat-fact");
-var generateEl = document.querySelector("#generate");
-var showFact = document.getElementById("btn")
-var showImg = document.querySelector("#img")
-
-
-
-var apiUrl = "https://api.thecatapi.com/v1/images/search"
-
-
-showFact.addEventListener("click",getCatImage)
-
-function getCatImage (){
+generateCat.addEventListener("click", fetchPics)
+savedCatsBtn.addEventListener("click", loadFacts)
 
 
-
-fetch(apiUrl)
-.then(function(response){
-    // console.log (response);
-    return response.json()
+let loadedFacts = []
 
 
+function fetchPics()  {
+    fetch("https://api.thecatapi.com/v1/images/search")
+        .then(res => res.json())
+        .then(data => {
 
-})
+            catImgBlock.innerHTML = ""
 
-.then(function(data){
-   
-
-   
-    
-    // showFact.addEventListener("click", function(){
-        var userClickimg = 0
-         userClickimg++
-       
-          if(userClickimg > 4){
-              userClickimg = 0
-          }
-          var randomCatPic = data[0].url
-         console.log("this is what it returning", randomCatPic)
-         var catPic = document.createElement("img");
-          catPic.setAttribute('src',randomCatPic );
-          console.log("data",catPic)
-    
-
-
-         displayFactEl.appendChild(catPic);
-        
-        
-})
-
-
-// })
-
-
-}
-
-getCatImage ()
-
-var getCatFactApi = function() {
-    
-    var factApiUrl = "https://cat-fact.herokuapp.com/facts/"
-    
-    fetch(factApiUrl)
-    .then(function(response){
-        console.log("response successful", response)
-        return response.json()
-        
-    })
-
-    .then(function(data){
-        
-        // displayCatFacts(data);
-        var userClick = 0
-        // var userClicks = data[userClick];
-         console.log("this is the data", data[userClick].text)
-
-       
-        showFact.addEventListener("click", function(){
+            let userClick = 0
             userClick++
-           
-          var randomFact = data[userClick].text
-           displayFactEl.textContent="";
-            var factEl = document.createElement("h1");
-             factEl.textContent = randomFact;
-             console.log("this is showing ",factEl)
-             displayFactEl.appendChild(factEl);
-            
-            
-            }
-        )
 
+            let catsImgUrl = data[0].url
+            let catsImgEl = document.createElement("img")
+            catsImgEl.setAttribute('src', catsImgUrl)
+            
+            catImgBlock.appendChild(catsImgEl)
 
     })
 }
 
 
+let catFact = fetch("https://cat-fact.herokuapp.com/facts")
+    .then(res => res.json())
+    .then(data => {
+        let userClick = 0
+        generateCat.addEventListener("click", () => {
+            userClick++
 
-getCatFactApi() 
+            if (userClick > 4) {
+                userClick = 0
+            }
 
+            catFactEl.textContent = ""
+            let randomFact = data[userClick].text
+            factEl = document.createElement("p")
+            factEl.textContent = randomFact
+            catFactEl.appendChild(factEl)
 
+            saveFactBtn.addEventListener("click", () => {
+                console.log(loadedFacts)
+                if (loadedFacts.indexOf(randomFact) === -1) {
+                    loadedFacts.push(randomFact)
+                    localStorage.setItem("fact", JSON.stringify(loadedFacts))
+                }else {
+                    return
+                }
+                console.log(loadedFacts)
+            })
+        })
+    })
+
+ 
+function loadFacts() {
+    loadedFacts = JSON.parse(localStorage.getItem("fact"))
+
+    for (let i = 0; i < loadedFacts.length; i++) {
+        const displayFactEl = document.createElement("li")
+        displayFactEl.textContent = loadedFacts[i]
+        console.log(loadedFacts[i])
+        loadFactsEl.appendChild(displayFactEl)
+    }
+    
+}

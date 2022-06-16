@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #0EBAE0;
+}
+
+h1 {
+  color: white;  
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+.btn {
+    padding: 1em 0.5em;
+    border: none;
+    background-color: #0EBAE0;
+    margin: 2em 0;
+    color: white;
+    border-radius: 10px;
+}
+
+.center {
+    display: block;
+    margin-left: center;
+    margin-right: center;
+    width: 25px;
+    height: 25px;
+  }
+  body{
+      text-align: center;
+      font-family: Helvetica, Arial, sans-serif;
+  }
+
+  button#generate {
+    font-size: 13px;
+    padding: 4px 10px 4px;
+}
+button#save-fact {
+
+    font-size: 13px;
+    padding: 4px 10px 4px;
+}
+
+  img {
+    display: fill;
+    max-width: 25%;
+    max-height: 25%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  div.container{
+      text-align: center;
+      padding: 10px 20px;
+  }
