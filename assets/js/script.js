@@ -1,8 +1,16 @@
 const catImgBlock = document.getElementById("cat-img")
 const catFactEl = document.getElementById("cat-fact")
 const generateCat = document.getElementById("generate")
+const saveFactBtn = document.getElementById("save-fact")
+const loadFactsEl = document.getElementById("load-facts")
+const savedCatsBtn = document.getElementById("saved-fact-btn")
 
 generateCat.addEventListener("click", fetchPics)
+savedCatsBtn.addEventListener("click", loadFacts)
+
+
+let loadedFacts = []
+
 
 function fetchPics()  {
     fetch("https://api.thecatapi.com/v1/images/search")
@@ -40,23 +48,29 @@ let catFact = fetch("https://cat-fact.herokuapp.com/facts")
             factEl = document.createElement("p")
             factEl.textContent = randomFact
             catFactEl.appendChild(factEl)
+
+            saveFactBtn.addEventListener("click", () => {
+                console.log(loadedFacts)
+                if (loadedFacts.indexOf(randomFact) === -1) {
+                    loadedFacts.push(randomFact)
+                    localStorage.setItem("fact", JSON.stringify(loadedFacts))
+                }else {
+                    return
+                }
+                console.log(loadedFacts)
+            })
         })
     })
 
-    function myFunction() {
-        var storedArray = JSON.parse(localStorage.getItem("randomFact"));
+ 
+function loadFacts() {
+    loadedFacts = JSON.parse(localStorage.getItem("fact"))
 
-        if (storedArray === null) {
-            storedArray = [];
-        }
-
-        var obj = {
-            email: "test@email.com",
-            age: 15,
-            name: "username"
-        };
-
-        storedArray.push(obj);
-        localStorage.setItem("storedArray", JSON.stringify(storedArray));
+    for (let i = 0; i < loadedFacts.length; i++) {
+        const displayFactEl = document.createElement("li")
+        displayFactEl.textContent = loadedFacts[i]
+        console.log(loadedFacts[i])
+        loadFactsEl.appendChild(displayFactEl)
     }
     
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="./assets/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <style>
         html, body, h1, h2, h3, h4, h5, h6, div {
@@ -26,11 +26,15 @@
 
 <body>
     <!--Header begins-->
-    <header>
+    <header class="blue lighten-2 section">
 
-        <nav class="blue lighten-3">
-        <h1>Daily Dose of Hapiness</h1>
-        <a href="#" class="white">Saved Cat Facts</a>
+        <nav class="blue lighten-2 row">
+        <h1 class="col">Daily Dose of Hapiness</h1>
+        <ul class="col">
+            <li>
+                <a href="#" id="saved-fact-btn" class="white">Saved Cat Facts</a>
+            </li>
+        </ul>
         </nav>
     </header>
  
@@ -38,8 +42,8 @@
 
         <!--Generate ur cat fact-->
         <div>
-        <button id="generate">Generate ur cat fact</button>
-        <div id="cat-img" class="container"> </div>
+        <button id="generate" class="btn">Generate ur cat fact</button>
+        <div id="cat-img"> </div>
         </div>
 
 
@@ -47,10 +51,14 @@
 
         <div>
             
-            <div class="container">
+            <div>
                 <p id="cat-fact"></p>
             </div>
-            <button>Save ur cat fact</button>
+            <button id="save-fact" class="btn">Save ur cat fact</button>
+        </div>
+
+        <div>
+            <ul id="load-facts"></ul>
         </div>
 
 
