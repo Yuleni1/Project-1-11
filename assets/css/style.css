@@ -104,3 +104,7 @@ button#save-fact {
 ul.col {
     margin-left: auto;
 }
+
+.save-noti {
+    color: rgb(31, 192, 31)
+}

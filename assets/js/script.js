@@ -7,6 +7,7 @@ const savedCatsBtn = document.getElementById("saved-fact-btn")
 const closeBtn = document.getElementById("close")
 const generatePage = document.getElementById("generate-page")
 const savedList = document.getElementById("saved-list")
+const saveNoti = document.getElementById("save-notif")
 
 generateCat.addEventListener("click", fetchPics)
 savedCatsBtn.addEventListener("click", loadFacts)
@@ -58,6 +59,8 @@ let catFact = fetch("https://cat-fact.herokuapp.com/facts")
             factEl.textContent = randomFact
             catFactEl.appendChild(factEl)
 
+            saveNoti.classList.add("hide")
+
             saveFactBtn.addEventListener("click", () => {
                 console.log(loadedFacts)
                 if (loadedFacts.indexOf(randomFact) === -1) {
@@ -66,7 +69,8 @@ let catFact = fetch("https://cat-fact.herokuapp.com/facts")
                 }else {
                     return
                 }
-                console.log(loadedFacts)
+
+                saveNoti.classList.remove("hide")
             })
         })
     })
