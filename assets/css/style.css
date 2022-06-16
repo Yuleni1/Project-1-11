@@ -17,13 +17,14 @@ main {
 
 h1 {
   color: white;  
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     padding: 2em;
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
 }
 
@@ -77,6 +78,7 @@ nav ul li a:hover {
     max-height: 25%;
     margin-top: 2em;
     margin-bottom: 2em;
+    
   }
   div.container{
       text-align: center;
@@ -98,4 +100,7 @@ button#save-fact {
 
     font-size: 13px;
     padding: 4px 10px 4px;
+}
+ul.col {
+    margin-left: auto;
 }
