@@ -78,7 +78,12 @@ nav ul li a:hover {
     max-height: 25%;
     margin-top: 2em;
     margin-bottom: 2em;
+    border-radius: 15px;
     
+  }
+
+  img:hover {
+    box-shadow: 0 4px 47px 0 rgb(0 0 0 / 85%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   }
   div.container{
       text-align: center;
