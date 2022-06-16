@@ -75,8 +75,11 @@ nav a:hover {
     max-height: 25%;
     margin-top: 2em;
     margin-bottom: 2em;
+    border-radius: 15px;
     
   }
+
+  
   div.container{
       text-align: center;
       padding: 10px 20px;
@@ -93,11 +96,19 @@ nav a:hover {
     font-size: 13px;
     padding: 4px 10px 4px;
 }
+
+button#generate:hover {
+    box-shadow: 0 4px 47px 0 rgb(0 0 0 / 25%), 0 6px 20px 0 rgb(78, 142, 226, 0.19);
+  }
+
 button#save-fact {
 
     font-size: 13px;
     padding: 4px 10px 4px;
 }
+button#save-fact:hover {
+    box-shadow: 0 4px 47px 0 rgb(0 0 0 / 25%), 0 6px 20px 0 rgba(78, 142, 226, 0.19);
+  }
 ul.col {
     margin-left: auto;
 }
