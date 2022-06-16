@@ -4,9 +4,18 @@ const generateCat = document.getElementById("generate")
 const saveFactBtn = document.getElementById("save-fact")
 const loadFactsEl = document.getElementById("load-facts")
 const savedCatsBtn = document.getElementById("saved-fact-btn")
+const closeBtn = document.getElementById("close")
+const generatePage = document.getElementById("generate-page")
+const savedList = document.getElementById("saved-list")
 
 generateCat.addEventListener("click", fetchPics)
 savedCatsBtn.addEventListener("click", loadFacts)
+
+closeBtn.addEventListener("click", () => {
+    closeBtn.classList.add("hide")
+    savedList.classList.add("hide")
+    generatePage.classList.remove("hide")
+})
 
 
 let loadedFacts = []
@@ -65,11 +74,15 @@ let catFact = fetch("https://cat-fact.herokuapp.com/facts")
  
 function loadFacts() {
     loadedFacts = JSON.parse(localStorage.getItem("fact"))
+    generatePage.classList.add("hide")
+    savedList.classList.remove("hide")
+    closeBtn.classList.remove("hide")
+
+    loadFactsEl.innerHTML = ""
 
     for (let i = 0; i < loadedFacts.length; i++) {
         const displayFactEl = document.createElement("li")
         displayFactEl.textContent = loadedFacts[i]
-        console.log(loadedFacts[i])
         loadFactsEl.appendChild(displayFactEl)
     }
     

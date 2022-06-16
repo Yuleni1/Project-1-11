@@ -29,7 +29,7 @@
     <header class="blue lighten-2 section">
 
         <nav class="blue lighten-2 row">
-        <h1 class="col">Daily Dose of Hapiness</h1>
+        <h1 class="col">Cute Cat and a Fact</h1>
         <ul class="col">
             <li>
                 <a href="#" id="saved-fact-btn" class="white">Saved Cat Facts</a>
@@ -40,24 +40,18 @@
  
     <main>
 
+        <a href="#" id="close" class="hide"><img src="./assets/images/x-4x.png" alt="close saved facts" class="close"></a>
+
         <!--Generate ur cat fact-->
-        <div>
-        <button id="generate" class="btn">Generate ur cat fact</button>
-        <div id="cat-img"> </div>
-        </div>
-
-
-        <!--save ur cat fact-->
-
-        <div>
-            
-            <div>
-                <p id="cat-fact"></p>
-            </div>
+        <div id="generate-page" class="container">
+            <button id="generate" class="btn">Generate ur cat fact</button>
+            <div id="cat-img"> </div>
+            <!--save ur cat fact-->
+            <p id="cat-fact"></p>
             <button id="save-fact" class="btn">Save ur cat fact</button>
         </div>
 
-        <div>
+        <div id="saved-list" class="container saved hide">
             <ul id="load-facts"></ul>
         </div>
 

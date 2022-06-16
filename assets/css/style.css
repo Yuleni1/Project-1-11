@@ -4,8 +4,15 @@
     padding: 0;
 }
 
+
 header {
     background-color: #0EBAE0;
+}
+
+main {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -16,6 +23,8 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 2em;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 nav ul li {
@@ -31,6 +40,11 @@ nav ul li a:hover {
     opacity: 0.8;
 }
 
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .btn {
     padding: 1em 0.5em;
     border: none;
@@ -38,6 +52,13 @@ nav ul li a:hover {
     margin: 2em 0;
     color: white;
     border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 15px;
 }
 
 .center {
@@ -60,4 +81,12 @@ nav ul li a:hover {
   div.container{
       text-align: center;
       padding: 10px 20px;
+  }
+
+  .hide {
+      display: none;
+  }
+
+  .saved {
+      margin-top: 3em;
   }
