@@ -11,7 +11,7 @@ header {
 
 main {
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -22,9 +22,10 @@ h1 {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 2em;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -39,7 +40,7 @@ nav a:hover {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -59,13 +60,6 @@ nav a:hover {
     width: 15px;
 }
 
-.center {
-    display: block;
-    margin-left: center;
-    margin-right: center;
-    width: 25px;
-    height: 25px;
-  }
   body{
       text-align: center;
   }
@@ -82,7 +76,6 @@ nav a:hover {
   
   div.container{
       text-align: center;
-      padding: 10px 20px;
   }
 
   .hide {
